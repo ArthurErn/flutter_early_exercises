@@ -2,4 +2,4 @@
  
  - Here are some basic flutter exercises that I can share with public, done following several flutter courses
 
-¯\_(ツ)_/¯
+ ¯\_(ツ)_/¯
