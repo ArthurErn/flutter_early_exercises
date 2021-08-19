@@ -11,11 +11,26 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:unit_test_widget/main.dart';
 
 void main() {
-  testWidgets('Procura por um FIELD com conteúdo', (WidgetTester tester) async {
-    await tester.pumpWidget(const MaterialApp(home: HomePage(),));
+  testWidgets('Procura por um field', (WidgetTester tester) async {
+    await tester.pumpWidget(const MaterialApp(
+      home: HomePage(),
+    ));
+
     final field = find.byKey(const ValueKey('textField'));
+
     await tester.enterText(field, 'testando widget');
     await tester.pump();
     expect(find.text('testando widget'), findsOneWidget);
+  });
+  testWidgets('Procura por um botão escrito "texto"',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(const MaterialApp(
+      home: HomePage(),
+    ));
+
+    final button = find.byKey(const ValueKey('buttonKey'));
+    await tester.press(button);
+    await tester.pump();
+    expect(find.widgetWithText(ElevatedButton, 'texto'), findsOneWidget);
   });
 }
