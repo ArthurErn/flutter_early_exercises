@@ -4,20 +4,19 @@
 // utility that Flutter provides. For example, you can send tap and scroll
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:unit_test_widget/main.dart';
 
 void main() {
-  group('Testando tela HOME: ', () {
+  group('Componentes: ', () {
     testWidgets('AppBar', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
         home: HomePage(),
       ));
       expect(find.widgetWithText(AppBar, 'Testes de Widget'), findsOneWidget);
     });
-    testWidgets('Text Field', (WidgetTester tester) async {
+    testWidgets('TextField', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
         home: HomePage(),
       ));
@@ -30,15 +29,23 @@ void main() {
       expect(find.text('testando widget'), findsOneWidget);
       expect(find.widgetWithText(TextField, 'Pesquisa'), findsOneWidget);
     });
-    testWidgets('Botão escrito "Botão"', (WidgetTester tester) async {
+    testWidgets('ElevatedButton "Botão"', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
         home: HomePage(),
       ));
       expect(find.widgetWithText(ElevatedButton, 'Botão'), findsOneWidget);
     });
+
+    testWidgets('ElevatedButton "Esconder Botão"', (WidgetTester tester) async {
+      await tester.pumpWidget(const MaterialApp(
+        home: HomePage(),
+      ));
+      expect(find.widgetWithText(ElevatedButton, 'Esconder Botão'),
+          findsOneWidget);
+    });
   });
-  
-  testWidgets('Test hiding button', (WidgetTester tester) async {
+  group('Hiding and Showing Button', () {
+    testWidgets('Hiding ElevatedButton "Botão"', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
         home: HomePage(),
       ));
@@ -48,5 +55,10 @@ void main() {
       await tester.pump();
 
       expect(find.widgetWithText(ElevatedButton, 'Botão'), findsNothing);
+      await tester.tap(hideButton);
+      await tester.pump();
+
+      expect(find.widgetWithText(ElevatedButton, 'Botão'), findsOneWidget);
     });
+  });
 }

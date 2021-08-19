@@ -47,7 +47,10 @@ class _HomePageState extends State<HomePage> {
               child: TextField(
                 key: const Key('textField'),
                 controller: field,
-                decoration: const InputDecoration(hintText: 'Pesquisa'),
+                decoration: const InputDecoration(
+                  hintText: 'Pesquisa',
+                  border: OutlineInputBorder(),
+                ),
               ),
             ),
             const SizedBox(height: 20, width: 1),
