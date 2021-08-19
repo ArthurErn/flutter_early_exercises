@@ -12,10 +12,8 @@ import 'package:unit_test_widget/main.dart';
 
 void main() {
   testWidgets('Procura por um FIELD com conteúdo', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
     await tester.pumpWidget(const MaterialApp(home: HomePage(),));
     final field = find.byKey(const ValueKey('textField'));
-
     await tester.enterText(field, 'testando widget');
     await tester.pump();
     expect(find.text('testando widget'), findsOneWidget);
