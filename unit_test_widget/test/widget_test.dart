@@ -21,6 +21,7 @@ void main() {
     await tester.enterText(field, 'testando widget');
     await tester.pump();
     expect(find.text('testando widget'), findsOneWidget);
+    expect(find.widgetWithText(TextField, 'Pesquisa'), findsOneWidget);
   });
   testWidgets('Procura por um botão escrito "texto"',
       (WidgetTester tester) async {
