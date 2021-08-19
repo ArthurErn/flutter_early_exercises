@@ -1,5 +1,5 @@
 // This is a basic Flutter widget test.
-//
+
 // To perform an interaction with a widget in your test, use the WidgetTester
 // utility that Flutter provides. For example, you can send tap and scroll
 // gestures. You can also use WidgetTester to find child widgets in the widget
@@ -11,7 +11,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:unit_test_widget/main.dart';
 
 void main() {
-  testWidgets('Procura por um field', (WidgetTester tester) async {
+  testWidgets('Text Field', (WidgetTester tester) async {
     await tester.pumpWidget(const MaterialApp(
       home: HomePage(),
     ));
@@ -20,11 +20,13 @@ void main() {
 
     await tester.enterText(field, 'testando widget');
     await tester.pump();
+
     expect(find.text('testando widget'), findsOneWidget);
     expect(find.widgetWithText(TextField, 'Pesquisa'), findsOneWidget);
   });
-  testWidgets('Procura por um botão escrito "texto"',
+  testWidgets('Botão escrito "texto"',
       (WidgetTester tester) async {
+
     await tester.pumpWidget(const MaterialApp(
       home: HomePage(),
     ));
@@ -32,6 +34,7 @@ void main() {
     final button = find.byKey(const ValueKey('buttonKey'));
     await tester.press(button);
     await tester.pump();
+
     expect(find.widgetWithText(ElevatedButton, 'texto'), findsOneWidget);
   });
 }
