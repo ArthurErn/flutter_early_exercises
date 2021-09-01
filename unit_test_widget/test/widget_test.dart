@@ -9,7 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:unit_test_widget/main.dart';
 
 void main() {
-  group('Componentes: ', () {
+  group('Components: ', () {
     testWidgets('AppBar', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
         home: HomePage(),
@@ -44,7 +44,7 @@ void main() {
           findsOneWidget);
     });
   });
-  group('Hiding and Showing Button', () {
+  group('Buttons: ', () {
     testWidgets('Hiding ElevatedButton "Botão"', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
         home: HomePage(),

@@ -53,16 +53,15 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            const SizedBox(height: 20, width: 1),
-            _hideButton
-                ? const Center()
-                : SizedBox(
-                    height: 50,
-                    width: 200,
-                    child: ElevatedButton(
-                        key: const Key('buttonKey'),
-                        onPressed: () {},
-                        child: const Text('Botão'))),
+            if (!_hideButton) const SizedBox(height: 20, width: 1),
+            if (!_hideButton)
+              SizedBox(
+                  height: 50,
+                  width: 200,
+                  child: ElevatedButton(
+                      key: const Key('buttonKey'),
+                      onPressed: () {},
+                      child: const Text('Botão'))),
             const SizedBox(height: 20, width: 1),
             SizedBox(
                 height: 50,
